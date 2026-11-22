@@ -22,19 +22,25 @@ def run_example(title: str, example: Callable[[], str | None]) -> None:
 def main() -> None:
     """main function"""
 
-    run_example(
-        "Basic LLM call",
-        lambda: langchain_examples.basic_example_calling_llm("Hello!"),
-    )
+    # run_example(
+    #     "Basic LLM call",
+    #     lambda: langchain_examples.basic_example_calling_llm("Hello!"),
+    # )
+
+    # run_example(
+    #     "Prompt template: Python",
+    #     lambda: langchain_examples.basic_example_calling_llm("Python")
+    # )
+
+    # run_example("Chat models example", langchain_examples.chat_models_example)
+
+    # run_example("Few shot prompts",
+    #             langchain_examples.few_shot_prompts_example)
 
     run_example(
-        "Prompt template: Python",
-        lambda: langchain_examples.basic_example_calling_llm("Python")
+        "Sequential Chain",
+        langchain_examples.sequential_chains
     )
-
-    run_example("Chat models example", langchain_examples.chat_models_example)
-    
-    run_example("Few shot prompts", langchain_examples.few_shot_prompts_example)
 
 if __name__ == "__main__":
     main()
