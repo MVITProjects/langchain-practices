@@ -10,7 +10,7 @@ load_dotenv()
 import langchain_examples  # noqa: E402  pylint: disable=wrong-import-position
 
 
-def run_example(title: str, example: Callable[[], str]) -> None:
+def run_example(title: str, example: Callable[[], str | None]) -> None:
     """Run one example, printing its result or the error without stopping the rest."""
     print(f"\n=== {title} ===")
     try:
@@ -32,6 +32,7 @@ def main() -> None:
         lambda: langchain_examples.basic_example_calling_llm("Python")
     )
 
+    run_example("Chat models example", langchain_examples.chat_models_example)
 
 if __name__ == "__main__":
     main()
