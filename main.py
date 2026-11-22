@@ -33,6 +33,8 @@ def main() -> None:
     )
 
     run_example("Chat models example", langchain_examples.chat_models_example)
+    
+    run_example("Few shot prompts", langchain_examples.few_shot_prompts_example)
 
 if __name__ == "__main__":
     main()

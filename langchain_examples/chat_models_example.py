@@ -1,14 +1,8 @@
 """ example of chat models """
-import os
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
-from pydantic import SecretStr
 
-
-LLM_MODEL_URL = os.getenv("LLM_BASE_URL", "http://127.0.0.1:1234/v1")
-LLM_MODEL = os.getenv("LLM_MODEL", "qwen/qwen3-8b")
-LLM_MODEL_API_KEY = os.getenv("LLM_API_KEY", "not-needed")
+from .get_llm import get_llm
 
 
 def chat_models_example() -> str:
@@ -20,11 +14,7 @@ def chat_models_example() -> str:
         ("human", "Answer this math question: {math}")
     ])
 
-    llm = ChatOpenAI(
-        base_url=LLM_MODEL_URL,
-        model=LLM_MODEL,
-        api_key=SecretStr(LLM_MODEL_API_KEY),
-    )
+    llm = get_llm()
 
     llm_chain = template | llm
 
